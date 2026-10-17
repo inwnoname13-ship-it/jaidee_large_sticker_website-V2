@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>คำนวณสติ๊กเกอร์ชิ้นใหญ่ | JAIDEE PRINTING</title>
+<meta name="theme-color" content="#d7194a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="JAIDEE PRINTING">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="description" content="โปรแกรมคำนวณจำนวนสติ๊กเกอร์ชิ้นใหญ่ JAIDEE PRINTING">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+
+<style>
+:root{--bg:#f5f6f8;--card:#fff;--ink:#171717;--muted:#667085;--line:#d0d5dd;--accent:#d7194a;--soft:#fff1f4;--blue:#2563eb}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Tahoma,"Noto Sans Thai",sans-serif}.wrap{max-width:1180px;margin:auto;padding:16px}.head{display:flex;gap:12px;align-items:center;margin-bottom:14px}.logo{background:var(--accent);color:#fff;font-weight:900;padding:9px 13px;border-radius:11px;line-height:.95;text-align:center;letter-spacing:.4px}.logo span{display:block}.logo span+span{font-size:11px;letter-spacing:1.2px;margin-top:5px}.head h1{font-size:21px;margin:0}.head p{font-size:13px;color:var(--muted);margin:4px 0 0}.layout{display:grid;grid-template-columns:minmax(320px,390px) minmax(0,1fr);gap:14px}.card{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:15px}.sectionTitle{font-size:13px;font-weight:800;color:#344054;margin:14px 0 7px}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:11px}label{display:block;font-size:13px;color:#475467;margin-bottom:5px}input,button{width:100%;min-height:44px;border-radius:10px;border:1px solid var(--line);padding:9px 11px;font:inherit;background:#fff;color:var(--ink)}input:focus,button:focus{outline:2px solid #fda4b8;outline-offset:1px}select#measureUnit{width:100%;min-height:44px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);font:inherit;padding:9px 11px;margin-bottom:10px}.unitWrap{position:relative}.unitWrap input{padding-right:48px}.unit{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:12px;color:var(--muted);pointer-events:none}.grid2,.grid3,.grid4{display:grid;gap:8px}.grid2{grid-template-columns:1fr 1fr}.grid3{grid-template-columns:repeat(3,1fr)}.grid4{grid-template-columns:repeat(4,1fr)}.opt{min-height:58px;border:1px solid var(--line);background:#fff;color:var(--ink);font-weight:700;margin:0;padding:8px 6px}.opt.active{border-color:var(--accent);background:var(--soft);color:var(--accent);box-shadow:0 0 0 2px #fecdd6}.opt .icon{display:flex;align-items:center;justify-content:center;height:28px;margin-bottom:6px}.shapeSvg{width:31px;height:25px;display:block;overflow:visible}.shapeSvg *{vector-effect:non-scaling-stroke}.opt small{display:block;font-size:10px;font-weight:400;color:var(--muted);margin-top:3px;line-height:1.25}.result{margin-top:13px;padding:13px;border:1px solid #fecdd6;background:var(--soft);border-radius:13px}.big{font-size:38px;font-weight:800;color:var(--accent);line-height:1}.desc{font-size:13px;color:#475467;margin-top:7px;line-height:1.45}.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}.chip{font-size:12px;padding:5px 8px;border:1px solid #fecdd6;background:#fff;border-radius:999px}.note{font-size:12px;color:#475467;line-height:1.5;background:#f8fafc;border-radius:10px;padding:10px;margin-top:10px}.preview{display:flex;justify-content:center;align-items:flex-start}.sheet{width:min(100%,620px)}canvas{width:100%;height:auto;display:block;border:1px solid #98a2b3;border-radius:6px;background:#fff}.caption{text-align:center;color:var(--muted);font-size:12px;margin-top:8px}.choices{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:12px}.choice{border:1px solid var(--line);border-radius:10px;padding:9px;background:#fff;cursor:pointer}.choice.active{border-color:var(--accent);box-shadow:0 0 0 2px #fecdd6}.choice b{display:block;font-size:14px}.choice span{font-size:11px;color:var(--muted);line-height:1.35}.primary{background:var(--accent);color:#fff;border:0;font-weight:800;margin-top:10px}.autoBox{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}.readout{border:1px solid var(--line);border-radius:10px;padding:9px 11px;background:#f9fafb}.readout span{display:block;font-size:11px;color:var(--muted)}.readout b{font-size:16px;color:#344054}.legend{display:flex;flex-wrap:wrap;gap:10px;font-size:11px;color:var(--muted);margin-top:8px;justify-content:center}.leg{display:flex;gap:5px;align-items:center}.sw{width:18px;height:3px;background:#475467;border-radius:2px}.sw.blue{background:var(--blue)}
+@media(max-width:850px){.wrap{padding:10px}.layout{grid-template-columns:1fr}.grid4{grid-template-columns:1fr 1fr}.preview{order:0}.card{padding:12px}.sheet{max-width:560px}}
+@media(max-width:430px){input,button{font-size:16px}.grid3{grid-template-columns:1fr}.row{grid-template-columns:1fr}.big{font-size:34px}.head h1{font-size:18px}.head{align-items:flex-start}.opt{min-height:56px}.choices{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head"><div class="logo"><span>JAIDEE</span><span>PRINTING</span></div><div><h1>โปรแกรมคำนวณสติ๊กเกอร์ชิ้นใหญ่</h1><p>พื้นที่งาน 120×40 ซม. / 100×50 ซม. / 80×60 ซม. • รองรับ PC / iOS / Android</p></div></div>
+  <div class="layout">
+    <section class="card">
+      <div class="sectionTitle">1) เลือกพื้นที่งาน</div>
+      <div class="grid2" id="areaButtons">
+        <button class="opt active" data-w="120" data-h="40" type="button"><span class="icon"><svg class="shapeSvg" viewBox="0 0 44 28" aria-hidden="true"><rect x="3" y="7" width="38" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.25"/><path d="M7 10h8M7 13h5" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity=".55"/></svg></span>120 × 40 ซม.<small>แนวยาว</small></button>
+        <button class="opt" data-w="100" data-h="50" type="button"><span class="icon"><svg class="shapeSvg" viewBox="0 0 44 28" aria-hidden="true"><rect x="5" y="6" width="34" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.25"/><path d="M9 9h7M9 12h5" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity=".55"/></svg></span>100 × 50 ซม.<small>แนวกว้าง</small></button>
+        <button class="opt" data-w="80" data-h="60" type="button"><span class="icon"><svg class="shapeSvg" viewBox="0 0 44 28" aria-hidden="true"><rect x="8" y="4" width="28" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="1.25"/><path d="M12 8h7M12 11h5" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity=".55"/></svg></span>80 × 60 ซม.<small>แนวกว้าง</small></button>
+      </div>
+
+      <div class="sectionTitle">2) เลือกรูปทรงสติ๊กเกอร์</div>
+      <div class="grid4" id="shapeButtons">
+        <button class="opt active" data-shape="rect" type="button"><span class="icon"><svg class="shapeSvg" viewBox="0 0 36 28" aria-hidden="true"><rect x="4" y="5" width="28" height="18" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>สี่เหลี่ยม</button>
+        <button class="opt" data-shape="circle" type="button"><span class="icon"><svg class="shapeSvg" viewBox="0 0 36 28" aria-hidden="true"><circle cx="18" cy="14" r="9.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>วงกลม<small>สลับฟันปลาได้</small></button>
+        <button class="opt" data-shape="ellipse" type="button"><span class="icon"><svg class="shapeSvg" viewBox="0 0 36 28" aria-hidden="true"><ellipse cx="18" cy="14" rx="13" ry="8" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>วงรี<small>สลับฟันปลาได้</small></button>
+        <button class="opt" data-shape="custom" type="button"><span class="icon"><svg class="shapeSvg" viewBox="0 0 36 28" aria-hidden="true"><path d="M7 19c2-7 5-11 10-10 4 .7 5-4 9-2 4 2 1 6 3 9 1.5 2.5-1 5-4 4-4-1-6 3-10 1-3-1.5-5 1-8-2Z" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linejoin="round"/></svg></span>ไดคัทตามทรง<small>คำนวณจากกรอบ ก×ส</small></button>
+      </div>
+
+      <div class="sectionTitle">3) เลือกประเภทไดคัท</div>
+      <div class="grid3" id="cutButtons">
+        <button class="opt active" data-cut="50" type="button">ไดคัท 50%<small>ชิ้นถัดไปห่าง 5 มม.</small></button>
+        <button class="opt" data-cut="100" type="button">ไดคัท 100%<small>ช่องห่าง 5 มม.</small></button>
+        <button class="opt" data-cut="both" type="button">50% + 100%<small>เส้น 50%/100% ห่าง 2 มม.</small></button>
+      </div>
+
+      <div class="sectionTitle">4) ใส่ขนาดสติ๊กเกอร์</div>
+      <label for="measureUnit">เลือกหน่วยวัด</label>
+      <select id="measureUnit" aria-label="หน่วยวัดขนาดสติ๊กเกอร์"><option value="cm">เซนติเมตร (cm)</option><option value="in">นิ้ว (in)</option><option value="mm">มิลลิเมตร (mm)</option></select>
+      <div class="row"><div><label id="wLabel" for="itemW">กว้าง</label><div class="unitWrap"><input id="itemW" inputmode="decimal" type="number" min="0.01" step="0.01" value="1.00"><span class="unit" data-unit-label>ซม.</span></div></div><div id="heightBox"><label for="itemH">สูง</label><div class="unitWrap"><input id="itemH" inputmode="decimal" type="number" min="0.01" step="0.01" value="1.00"><span class="unit" data-unit-label>ซม.</span></div></div></div>
+
+      <div class="sectionTitle">5) ระยะไดคัทอัตโนมัติ</div>
+      <div class="autoBox"><div class="readout"><span>ระยะระหว่างชิ้น</span><b id="gapText">5.0 มม.</b></div><div class="readout"><span>ขอบระยะปลอดภัย</span><b id="safeText">1.0 มม.</b></div><div class="readout"><span>ระยะ 50% ถึง 100%</span><b id="offsetText">—</b></div></div>
+
+      <button id="calc" class="primary" type="button">คำนวณจำนวนดวง</button>
+      <div class="result" aria-live="polite"><div class="big"><span id="count">0</span> ดวง</div><div class="desc" id="desc">—</div><div class="chips" id="chips"></div></div>
+      <div class="choices" id="choices"></div>
+      <div class="note"><b>หมายเหตุ:</b> สำหรับ “ไดคัทตามทรง” โปรแกรมใช้กรอบกว้าง × สูงเป็นพื้นที่กันชนในการจัดวาง เพราะยังไม่ทราบเส้นคอนทัวร์จริง จึงเป็นค่าประเมินแบบปลอดภัย</div>
+    </section>
+
+    <section class="card preview"><div class="sheet"><canvas id="cv" width="900" height="520"></canvas><div class="legend"><span class="leg"><i class="sw"></i>เส้นไดคัท 100% (ด้านนอก)</span><span class="leg"><i class="sw blue"></i>เส้นไดคัท 50% ด้านใน ห่าง 2 มม. (โหมด 50%+100%)</span></div><div class="caption">โปรแกรมเลือกแบบที่ได้จำนวนมากที่สุดก่อน และสามารถกดดูแบบอื่นได้</div></div></section>
+  </div>
+</div>
+<script>
+const $=id=>document.getElementById(id); const EPS=1e-7; let SW=120,SH=40,shape='rect',cut='50',layouts=[],active=0;
+function gapCm(){
+  // สี่เหลี่ยม: ไดคัท 100% และ 50%+100% ห่างระหว่างชิ้น 5 มม.
+  if(cut==='100') return 0.5; // ไดคัท 100% ทุกทรง: ช่องห่าง 5 มม.
+  if(cut==='50' || cut==='both') return 0.5; // ไดคัท 50% และ 50%+100%: ช่องห่าง 5 มม.
+  return 0.5;
+}
+function innerOffsetCm(){return cut==='both'?0.2:0} // 2 mm
+function safeMarginCm(){return 0.1} // 1.0 mm รอบพื้นที่งาน
+const unitFactors={cm:1,in:2.54,mm:0.1};
+let displayUnit='cm';
+let exactDimensions={itemW:1,itemH:1};
+function toDisplay(cm,unit){return (cm/unitFactors[unit]).toFixed(2)}
+function updateUnit(unit){
+  // Preserve the actual dimensions, including precision beyond two displayed decimals.
+  for(const id of ['itemW','itemH']) $(id).value=toDisplay(exactDimensions[id],unit);
+  displayUnit=unit;
+  document.querySelectorAll('[data-unit-label]').forEach(el=>el.textContent=unit==='cm'?'ซม.':unit==='in'?'นิ้ว':'มม.');
+  calculate();
+}
+function n(id){return exactDimensions[id]}
+function fitCount(L,size,g){const M=safeMarginCm(),usable=L-2*M;if(usable+EPS<size)return 0;return Math.max(0,Math.floor((usable+g+EPS)/(size+g)))}
+function used(count,size,g){return count?count*size+(count-1)*g:0}
+function grid(SW,SH,w,h,g,label,shape,rot=false){const cols=fitCount(SW,w,g),rows=fitCount(SH,h,g),tw=used(cols,w,g),th=used(rows,h,g),x0=(SW-tw)/2,y0=(SH-th)/2,items=[];for(let r=0;r<rows;r++)for(let c=0;c<cols;c++)items.push({x:x0+c*(w+g),y:y0+r*(h+g),w,h,rot});return{label,count:items.length,items,detail:`${cols} คอลัมน์ × ${rows} แถว`,shape}}
+function mixedRectCandidates(SW,SH,w,h,g,shape){const out=[];const normalCols=fitCount(SW,w,g),rotCols=fitCount(SW,h,g);for(let a=0;a<=fitCount(SH,h,g)+1;a++)for(let b=0;b<=fitCount(SH,w,g)+1;b++){if(a+b===0)continue;const totalH=a*h+b*w+Math.max(0,a+b-1)*g;if(totalH>SH-2*safeMarginCm()+EPS)continue;let y=(SH-totalH)/2,items=[];for(let r=0;r<a;r++){const rw=used(normalCols,w,g),x0=(SW-rw)/2;for(let c=0;c<normalCols;c++)items.push({x:x0+c*(w+g),y,w,h,rot:false});y+=h+g}for(let r=0;r<b;r++){const rw=used(rotCols,h,g),x0=(SW-rw)/2;for(let c=0;c<rotCols;c++)items.push({x:x0+c*(h+g),y,w:h,h:w,rot:true});y+=w+g}out.push({label:'ผสมแถวแนวตั้ง–แนวนอน',count:items.length,items,detail:`ปกติ ${a} แถว + หมุน ${b} แถว`,shape})}
+return out}
+function pointEllipseDistance(px,py,a,b){px=Math.abs(px);py=Math.abs(py);if(px<EPS&&py<EPS)return 0;const inside=(px*px)/(a*a)+(py*py)/(b*b)<=1+EPS;if(inside)return 0;let lo=0,hi=Math.max(a*px,b*py,1),f=t=>((a*px)/(t+a*a))**2+((b*py)/(t+b*b))**2-1;while(f(hi)>0)hi*=2;for(let i=0;i<60;i++){const mid=(lo+hi)/2;if(f(mid)>0)lo=mid;else hi=mid}const t=hi,qx=a*a*px/(t+a*a),qy=b*b*py/(t+b*b);return Math.hypot(px-qx,py-qy)}
+function ellipseGap(A,B){const dx=(A.x+A.w/2)-(B.x+B.w/2),dy=(A.y+A.h/2)-(B.y+B.h/2);return pointEllipseDistance(dx,dy,A.w,A.h)}
+function validate(items,SW,SH,g){for(const it of items){if(it.x<safeMarginCm()-EPS||it.y<safeMarginCm()-EPS||it.x+it.w>SW-safeMarginCm()+EPS||it.y+it.h>SH-safeMarginCm()+EPS)return false}for(let i=0;i<items.length;i++)for(let j=i+1;j<items.length;j++){const A=items[i],B=items[j];if(Math.abs((A.x+A.w/2)-(B.x+B.w/2))>A.w+g||Math.abs((A.y+A.h/2)-(B.y+B.h/2))>A.h+g)continue;if(ellipseGap(A,B)<g-1e-5)return false}return true}
+function staggerH(SW,SH,w,h,g,startShift,label,shape,rot){const xPitch=w+g,dx=xPitch/2;let lo=(h+g)/2,hi=h+g;for(let k=0;k<60;k++){const mid=(lo+hi)/2,A={x:0,y:0,w,h},B={x:dx,y:mid,w,h};if(ellipseGap(A,B)>=g)hi=mid;else lo=mid}const yPitch=hi,items=[];let row=0;for(let cy=safeMarginCm()+h/2;cy+h/2<=SH-safeMarginCm()+EPS;cy+=yPitch,row++){const offset=((row+startShift)%2)?xPitch/2:0;for(let cx=safeMarginCm()+w/2+offset;cx+w/2<=SW-safeMarginCm()+EPS;cx+=xPitch)items.push({x:cx-w/2,y:cy-h/2,w,h,rot})}if(!validate(items,SW,SH,g))return null;return{label,count:items.length,items,detail:'ฟันปลาแนวนอน',shape}}
+function staggerV(SW,SH,w,h,g,startShift,label,shape,rot){const yPitch=h+g,dy=yPitch/2;let lo=(w+g)/2,hi=w+g;for(let k=0;k<60;k++){const mid=(lo+hi)/2,A={x:0,y:0,w,h},B={x:mid,y:dy,w,h};if(ellipseGap(A,B)>=g)hi=mid;else lo=mid}const xPitch=hi,items=[];let col=0;for(let cx=safeMarginCm()+w/2;cx+w/2<=SW-safeMarginCm()+EPS;cx+=xPitch,col++){const offset=((col+startShift)%2)?yPitch/2:0;for(let cy=safeMarginCm()+h/2+offset;cy+h/2<=SH-safeMarginCm()+EPS;cy+=yPitch)items.push({x:cx-w/2,y:cy-h/2,w,h,rot})}if(!validate(items,SW,SH,g))return null;return{label,count:items.length,items,detail:'ฟันปลาแนวตั้ง',shape}}
+function ellipseCandidates(SW,SH,w,h,g,shape){const out=[];const add=(ow,oh,rot,p='')=>{const G=grid(SW,SH,ow,oh,g,p+'ตาราง',shape,rot);if(validate(G.items,SW,SH,g))out.push(G);for(const s of [0,1]){const H=staggerH(SW,SH,ow,oh,g,s,p+'ฟันปลาแนวนอน',shape,rot);if(H)out.push(H);const V=staggerV(SW,SH,ow,oh,g,s,p+'ฟันปลาแนวตั้ง',shape,rot);if(V)out.push(V)}};add(w,h,false);if(shape==='ellipse'&&Math.abs(w-h)>EPS)add(h,w,true,'หมุน 90° • ');return out}
+function calculate(){let w=n('itemW'),h=shape==='circle'?w:n('itemH'),g=gapCm();if(![w,h].every(Number.isFinite)||w<=0||h<=0){alert('กรุณากรอกขนาดให้ถูกต้อง');return}layouts=(shape==='circle'||shape==='ellipse')?ellipseCandidates(SW,SH,w,h,g,shape):mixedRectCandidates(SW,SH,w,h,g,shape);layouts.sort((a,b)=>b.count-a.count);active=0;renderChoices();draw()}
+function renderChoices(){const box=$('choices');box.innerHTML='';layouts.slice(0,6).forEach((l,i)=>{const d=document.createElement('div');d.className='choice'+(i===active?' active':'');d.innerHTML=`<b>${l.count} ดวง</b><span>${l.label}<br>${l.detail}</span>`;d.addEventListener('click',()=>{active=i;renderChoices();draw()});box.appendChild(d)})}
+function roundedPath(ctx,x,y,w,h,r){r=Math.min(r,w/2,h/2);ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath()}
+function drawItem(ctx,it,x,y,w,h){ctx.strokeStyle='#475467';ctx.lineWidth=1;ctx.fillStyle=it.rot?'#eef2f7':'#f8fafc';if(shape==='circle'||shape==='ellipse'){ctx.beginPath();ctx.ellipse(x+w/2,y+h/2,w/2,h/2,0,0,Math.PI*2);ctx.fill();ctx.stroke()}else if(shape==='custom'){roundedPath(ctx,x,y,w,h,Math.min(w,h)*.18);ctx.setLineDash([5,4]);ctx.fill();ctx.stroke();ctx.setLineDash([])}else{ctx.fillRect(x,y,w,h);ctx.strokeRect(x,y,w,h)}if(cut==='both'){const off=innerOffsetCm()*currentScale;ctx.strokeStyle='#2563eb';ctx.lineWidth=1.5;if(shape==='circle'||shape==='ellipse'){if(w>2*off&&h>2*off){ctx.beginPath();ctx.ellipse(x+w/2,y+h/2,w/2-off,h/2-off,0,0,Math.PI*2);ctx.stroke()}}else{const ix=x+off,iy=y+off,iw=w-2*off,ih=h-2*off;if(iw>0&&ih>0){ctx.strokeRect(ix,iy,iw,ih)}}}}
+let currentScale=1;
+function draw(){const L=layouts[active];if(!L)return;$('count').textContent=L.count;$('desc').textContent=`${L.label} • ${L.detail}`;$('chips').innerHTML=`<span class="chip">พื้นที่ ${SW}×${SH} ซม.</span><span class="chip">ช่องห่าง ${(gapCm()*10).toFixed(1)} มม.</span><span class="chip">ขอบปลอดภัย ${(safeMarginCm()*10).toFixed(1)} มม.</span><span class="chip">${cut==='50'?'ไดคัท 50%':cut==='100'?'ไดคัท 100%':'ไดคัท 50% + 100% (เส้นห่าง 2 มม.)'}</span>`;const cv=$('cv'),ctx=cv.getContext('2d'),pad=34;currentScale=Math.min((cv.width-2*pad)/SW,(cv.height-2*pad)/SH);const sc=currentScale,ox=(cv.width-SW*sc)/2,oy=(cv.height-SH*sc)/2;ctx.clearRect(0,0,cv.width,cv.height);ctx.fillStyle='#f8fafc';ctx.fillRect(0,0,cv.width,cv.height);ctx.fillStyle='#fff';ctx.strokeStyle='#667085';ctx.lineWidth=1.4;ctx.fillRect(ox,oy,SW*sc,SH*sc);ctx.strokeRect(ox,oy,SW*sc,SH*sc);L.items.forEach(it=>drawItem(ctx,it,ox+it.x*sc,oy+it.y*sc,it.w*sc,it.h*sc));ctx.fillStyle='#475467';ctx.font='12px Tahoma';ctx.textAlign='center';ctx.fillText(`${SW} ซม.`,ox+SW*sc/2,oy-10)}
+function syncCut(){const g=gapCm();$('gapText').textContent=(g*10).toFixed(1)+' มม.';$('safeText').textContent=(safeMarginCm()*10).toFixed(1)+' มม.';$('offsetText').textContent=cut==='both'?'2.0 มม.':'—';calculate()}
+function syncShape(){document.querySelectorAll('#shapeButtons .opt').forEach(b=>b.classList.toggle('active',b.dataset.shape===shape));$('heightBox').style.display=shape==='circle'?'none':'block';$('wLabel').textContent=shape==='circle'?'เส้นผ่านศูนย์กลาง':'กว้าง';calculate()}
+document.querySelectorAll('#areaButtons .opt').forEach(b=>b.addEventListener('click',()=>{SW=Number(b.dataset.w);SH=Number(b.dataset.h);document.querySelectorAll('#areaButtons .opt').forEach(x=>x.classList.toggle('active',x===b));calculate()}));
+document.querySelectorAll('#shapeButtons .opt').forEach(b=>b.addEventListener('click',()=>{shape=b.dataset.shape;syncShape()}));
+document.querySelectorAll('#cutButtons .opt').forEach(b=>b.addEventListener('click',()=>{cut=b.dataset.cut;document.querySelectorAll('#cutButtons .opt').forEach(x=>x.classList.toggle('active',x===b));syncCut()}));
+$('calc').addEventListener('click',calculate);
+$('measureUnit').addEventListener('change',e=>updateUnit(e.target.value));
+let t;['itemW','itemH'].forEach(id=>$(id).addEventListener('input',()=>{
+  const value=Number($(id).value);
+  if(Number.isFinite(value)&&value>0)exactDimensions[id]=value*unitFactors[displayUnit];
+  clearTimeout(t);t=setTimeout(calculate,220);
+}));syncCut();syncShape();
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+}
+</script>
+</body></html>

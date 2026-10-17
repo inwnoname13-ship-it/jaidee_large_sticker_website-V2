@@ -1,0 +1,15 @@
+{
+  "name": "JAIDEE PRINTING - คำนวณสติ๊กเกอร์ชิ้นใหญ่",
+  "short_name": "JAIDEE PRINTING",
+  "description": "โปรแกรมคำนวณจำนวนสติ๊กเกอร์ชิ้นใหญ่",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f6f8",
+  "theme_color": "#d7194a",
+  "lang": "th",
+  "icons": [
+    {"src":"./icons/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
+    {"src":"./icons/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
+  ]
+}
